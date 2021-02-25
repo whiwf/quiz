@@ -41,12 +41,6 @@ function loadData(index) {
     PREV_BUTTON.disabled = false;
     NEXT_BUTTON.disabled = false;
   }
-  if(hadSubmitted[index]){
-    submit();
-    return;
-  }
-  choose[index] = 0;
-  hadSubmitted[index] = false;
   question.textContent = questions[index].question;
   let html = questions[index].answers
     .map((answer, i) => {
@@ -56,7 +50,12 @@ function loadData(index) {
     })
     .join("");
   answers.innerHTML = html;
-  
+  if(hadSubmitted[index]){
+    submit();
+  } else {
+    choose[index] = 0;
+    hadSubmitted[index] = false;
+  }
 }
 
 function chooseAnswer(e) {
