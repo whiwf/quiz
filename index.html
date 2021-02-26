@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[whiwf] - Quiz - learn tailwind</title>
+    <title>Quiz - learn tailwind</title>
     <link rel="shortcut icon" href="./images/logo-2-icon.png" />
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -17,20 +17,20 @@
       background: url('./images/background.jpeg') no-repeat center;
       background-size: cover;
     "
-    class="text-xl min-h-screen flex justify-center items-center"
+    class="min-h-screen flex justify-center items-center"
   >
     <div id="startLayout" class="p-3">
       <h1 class="text-5xl font-bold">Start quiz!!!</h1>
       <div class="flex justify-center my-10">
         <button
           id="startQuestionButton"
-          class="bg-red-600 px-7 py-3 rounded text-gray-50 focus:outline-none"
+          class="active:animate-btn focus:outline-none bg-red-600 px-7 py-3 rounded text-gray-50"
         >
           Start
         </button>
       </div>
     </div>
-    <div id="questionLayout" class="hidden p-3 w-2/4">
+    <div id="questionLayout" class="hidden p-3 w-3/4">
       <h1 id="question" class="font-bold text-center">question</h1>
       <ul id="answers" class="grid grid-cols-2 mt-10 gap-y-5 gap-x-3 text-base">
         <li>A</li>
@@ -40,19 +40,19 @@
       </ul>
       <div id="controlButtons" class="text-base flex justify-around mt-10">
         <button
-          class="bg-yellow-700 px-7 py-3 rounded text-gray-50 focus:outline-none disabled:opacity-50"
+          class="bg-yellow-700 px-7 py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
           disabled
         >
           prev
         </button>
         <button
-          class="bg-red-600 px-7 py-3 rounded text-gray-50 focus:outline-none disabled:opacity-50"
+          class="bg-red-600 px-7 py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
           disabled
         >
           submit
         </button>
         <button
-          class="bg-blue-700 px-7 py-3 rounded text-gray-50 focus:outline-none disabled:opacity-50"
+          class="bg-blue-700 px-7 py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
           disabled
         >
           next

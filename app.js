@@ -1,7 +1,4 @@
 const questions = [];
-fetch("quiz.json")
-  .then((data) => data.json())
-  .then((data) => questions.push(...data));
 
 //define
 const startLayout = document.querySelector("#startLayout");
@@ -23,6 +20,16 @@ var choose = [];
 var hadSubmitted = [];
 
 //function
+function getData(){
+  startButton.textContent = "Starting..."
+  fetch("quiz.json")
+  .then((data) => data.json())
+  .then((data) => {
+    questions.push(...data);
+    showQuestion();
+  });
+}
+
 function showQuestion() {
   startLayout.classList.add("hidden");
   questionLayout.classList.remove("hidden");
@@ -44,7 +51,7 @@ function loadData(index) {
   question.textContent = questions[index].question;
   let html = questions[index].answers
     .map((answer, i) => {
-      return `<li class="text-center cursor-pointer border border-${CHOOSE_COLOR}	rounded p-3" data-index="${i}">
+      return `<li class="transition text-center cursor-pointer border border-${CHOOSE_COLOR}	rounded p-3" data-index="${i}">
       ${answer}
     </li>`;
     })
@@ -99,14 +106,20 @@ function clear(){
 }
 function next(){
   loadData(++currentQuestion);
+  if(!hadSubmitted[currentQuestion]){
+    SUBMIT_BUTTON.disabled = true;
+  }
 }
 
 function prev(){
   loadData(--currentQuestion);
+  if(!hadSubmitted[currentQuestion]){
+    SUBMIT_BUTTON.disabled = true;
+  }
 }
 
 //event
-startButton.addEventListener("click", showQuestion);
+startButton.addEventListener("click", getData);
 answers.addEventListener("click", chooseAnswer);
 SUBMIT_BUTTON.addEventListener('click', submit);
 NEXT_BUTTON.addEventListener('click', next);
