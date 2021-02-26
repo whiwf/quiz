@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz - learn tailwind</title>
     <link rel="shortcut icon" href="./images/logo-2-icon.png" />
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./tailwind/tailwind.css" />
   </head>
   <body
@@ -32,7 +28,10 @@
     </div>
     <div id="questionLayout" class="hidden p-3 w-3/4">
       <h1 id="question" class="font-bold text-center">question</h1>
-      <ul id="answers" class="grid grid-cols-2 mt-10 gap-y-5 gap-x-3 text-base">
+      <ul
+        id="answers"
+        class="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-y-5 gap-x-3 text-base"
+      >
         <li>A</li>
         <li>A</li>
         <li>A</li>
@@ -40,25 +39,30 @@
       </ul>
       <div id="controlButtons" class="text-base flex justify-around mt-10">
         <button
-          class="bg-yellow-700 px-7 py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
+          class="flex items-center bg-yellow-700 px-2 py-1 sm:px-7 sm:py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
           disabled
         >
-          prev
+          <box-icon color="white" name="skip-previous"></box-icon>
         </button>
         <button
-          class="bg-red-600 px-7 py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
+          class="bg-red-600 px-5 py-2 sm:px-7 sm:py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
           disabled
         >
           submit
         </button>
         <button
-          class="bg-blue-700 px-7 py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
+          class="flex items-center bg-blue-700 px-2 py-1 sm:px-7 sm:py-3 rounded text-gray-50 disabled:opacity-50 focus:outline-none active:animate-btn"
           disabled
         >
-          next
+          <box-icon
+            color="white"
+            name="skip-previous"
+            rotate="180"
+          ></box-icon>
         </button>
       </div>
     </div>
   </body>
   <script src="app.js"></script>
+  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 </html>
